@@ -5,10 +5,13 @@ const graphqlHttp = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
 const graphqlResolver = require('./graphql/resolvers');
 const app = express(); 
+const cors = require('cors'); 
 
-app.use(bodyParser.json()); 
+
+app.use(cors() , bodyParser.json()); 
 
 app.use('/graphql' , graphqlHttp({
+
 
     schema : graphqlSchema   , 
     

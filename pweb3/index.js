@@ -63,17 +63,16 @@ function getNodeInfo (){
     return web3.pi.getNodeInfo() ;
 }
 function getPeerCount(){
+  
     return web3.pi.net.getPeerCount();
 }
 function getId(){
 
     try{
-        web3.pi.net.getId(r=>{console.log("rrrr : " , r)}); 
         return web3.pi.net.getId(); 
 
     }catch(error){
         throw error ; 
-        return "hi this is error" ; 
     }
 
 }

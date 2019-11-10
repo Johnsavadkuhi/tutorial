@@ -2,68 +2,58 @@ const { getBlockNumber, getBlock, getTransaction, getPendingTransactions, getBlo
     getTransactionFromBlock, getTransactionCount , getChainId ,getNodeInfo ,
     getPeerCount , getId } = require('../../pweb3');
 
+    
 module.exports = {
+  
     getBlockNumber: () => {
-        return getBlockNumber().then(result => {
-            return result;
-        })
+
+         return getBlockNumber() 
 
     },
 
     getBlock: (args) => {
 
-        return getBlock(args.numberBlock).then(result => {
-            return result;
-
-        })
+        return getBlock(args.numberBlock)
     },
 
     getTransaction: (args) => {
 
-        return getTransaction(args.transactionHash).then(result => {
-            return result;
-        })
+        return getTransaction(args.transactionHash);
 
     },
     getPendingTransactions: () => {
 
 
-        getPendingTransactions().then(result => {
-
-            return result;
-        })
+       return  getPendingTransactions();
     },
     getBlockTransactionCount: (args) => {
 
-        return getBlockTransactionCount(args.numberBlock).then(result => {
-            return result;
-        })
+        return getBlockTransactionCount(args.numberBlock);
     },
+
     getTransactionFromBlock: (args) => {
-        return getTransactionFromBlock(args.numberBlock, args.transactionIndex).then(result => {
-            return result;
-        })
+
+        return getTransactionFromBlock(args.numberBlock, args.transactionIndex); 
+   
     },
+
     getTransactionReceipt: (args) => {
-        return getTransactionReceipt(args.transactionHash).then(result => {
-            return result;
-        })
+
+        return getTransactionReceipt(args.transactionHash);
     },
 
     getTransactionCount:(args)=>{
-        return getTransactionCount(args.address).then(result=>{
-            return result; 
-        })
+
+        return getTransactionCount(args.address);
     },
     getChainId:()=>{
-        return getChainId().then(result=>{
-            return result; 
-        })
+
+        return getChainId();
     },
     getNodeInfo:()=>{
-        return getNodeInfo().then(result=>{
-            return result; 
-        })
+        
+        return getNodeInfo();
+
     },
     getPeerCount:()=>{
        return  getPeerCount();
@@ -71,9 +61,7 @@ module.exports = {
 
     getId:()=>{
 
-        return getId().then(r=>{
-            return r ; 
-        }) ; 
+        return getId() ;  
     }
 
 } 
