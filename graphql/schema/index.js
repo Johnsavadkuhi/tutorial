@@ -21,11 +21,51 @@ type block{
     timestamp:String
     transactions:[String]!
     uncles:[Int]!
-}    
+} 
+type transaction {
+    hash :String 
+    nonce : Int 
+    blockHash :Int
+    transactionIndex : Int 
+    from : String
+    to : String
+    value : String 
+    gasPrice :String 
+    gas : Float 
+    input : String  
+
+}   
+type transactionReceipt{
+    status :Boolean
+    blockHash:String
+    blockNumber:Int
+    transactionHash:String
+    transactionIndex:Int
+    from :String
+    to:String
+    contractAddress:String
+    cumulativeGasUsed:Int
+    gasUsed:Float
+    logs:[String]
+
+
+}
 
 type  RootQuery {
+
     getBlockNumber : String!
     getBlock(numberBlock : String! ) : block! 
+    getTransaction (transactionHash : String ):transaction
+    getPendingTransactions :[transaction]
+    getBlockTransactionCount(numberBlock : String!) : Int
+    getTransactionFromBlock(numberBlock : String , transactionIndex:Int) :transaction
+    getTransactionReceipt(transactionHash:String) :transactionReceipt
+    getTransactionCount(address:String):Int
+    getChainId:Int
+    getNodeInfo:String
+    getPeerCount:Int
+    getId:Int
+
  }
 
  schema { 

@@ -10,14 +10,75 @@ function getBlockNumber(){
 
 function getBlock (numberBlock){
 
-     web3.pi.getBlock(3150).then((result) => {
-        
-        console.log("r : " , result) ;
-
-    }).catch((err) => {
-        
-    });; 
     return web3.pi.getBlock(numberBlock); 
 }
 
-module.exports = {getBlockNumber , getBlock}  ; 
+function getTransaction (transactionHash ){
+
+    return web3.pi.getTransaction(transactionHash); 
+
+}
+function getPendingTransactions (){
+    return web3.pi.getPendingTransactions(); 
+}
+function getBlockTransactionCount(numberBlock ) {
+
+    web3.pi.getBlockTransactionCount(numberBlock).then((result) => {
+        
+        console.log("getBlockTransactionCount : " , result); 
+
+    }).catch((err) => {
+        throw err; 
+    });
+
+    return web3.pi.getBlockTransactionCount(numberBlock); 
+
+}
+
+function getTransactionFromBlock(blocknumber , transactionIndex){
+    return web3.pi.getTransactionFromBlock(blocknumber , transactionIndex) ; 
+}
+
+function getTransactionReceipt(transactionHash){
+
+    return web3.pi.getTransactionReceipt(transactionHash)
+}
+
+function getTransactionCount(address){
+ 
+    return web3.pi.getTransactionCount(address); 
+
+}
+function getChainId(){
+    
+    web3.pi.getChainId().then(result=>{
+        console.log(result) ; 
+    })
+    return web3.pi.getChainId(); 
+
+}
+
+function getNodeInfo (){
+
+    return web3.pi.getNodeInfo() ;
+}
+function getPeerCount(){
+    return web3.pi.net.getPeerCount();
+}
+function getId(){
+
+    try{
+        web3.pi.net.getId(r=>{console.log("rrrr : " , r)}); 
+        return web3.pi.net.getId(); 
+
+    }catch(error){
+        throw error ; 
+        return "hi this is error" ; 
+    }
+
+}
+
+module.exports = {getBlockNumber , getBlock, getTransaction , getPendingTransactions ,
+     getBlockTransactionCount  , getTransactionFromBlock  , getTransactionReceipt ,
+      getTransactionCount , getChainId ,getNodeInfo , getPeerCount , getId
+    }  ; 
