@@ -50,6 +50,20 @@ type transactionReceipt{
 
 
 }
+type proxiedDetailed {
+    ProxiedBalance:String
+    DepositProxiedBalance :String
+    PendingRefundBalance:String
+}
+type balance {
+    balance : String
+    delegateBalance:String
+    depositBalance:String
+    depositProxiedBalance:String
+    pendingRefundBalance:String
+    proxiedBalance:String
+    proxied_detail:proxiedDetailed
+}
 
 type  RootQuery {
 
@@ -65,6 +79,8 @@ type  RootQuery {
     getNodeInfo:String
     getPeerCount:Int
     getId:Int
+    getBalance(address:String) : String
+    getFullBalance(address:String , numberBlock : String):balance 
 
  }
 

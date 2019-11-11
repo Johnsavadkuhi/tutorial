@@ -1,6 +1,7 @@
 const { getBlockNumber, getBlock, getTransaction, getPendingTransactions, 
     getBlockTransactionCount,getTransactionFromBlock, getTransactionCount ,
-     getChainId ,getNodeInfo , getPeerCount , getId } = require('../../pweb3');
+     getChainId ,getNodeInfo , getPeerCount , getId , getBalance ,
+     getFullBalance} = require('../../pweb3');
 
 
 module.exports = {
@@ -62,6 +63,12 @@ module.exports = {
     getId:()=>{
 
         return getId() ;  
+    },
+    getBalance :(args)=>{
+        return getBalance(args.address)
+    },
+    getFullBalance :(args)=>{
+        return getFullBalance(args.address , args.numberBlock ) ;
     }
 
 } 

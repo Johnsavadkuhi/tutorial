@@ -74,10 +74,20 @@ function getId(){
     }catch(error){
         throw error ; 
     }
+}
+
+function getBalance(address){
+    return web3.pi.getBalance(address)
+}
+
+function getFullBalance(address , numberBlock ){
+    
+    return web3.pi.getFullBalance(address , numberBlock); 
 
 }
 
 module.exports = {getBlockNumber , getBlock, getTransaction , getPendingTransactions ,
      getBlockTransactionCount  , getTransactionFromBlock  , getTransactionReceipt ,
-      getTransactionCount , getChainId ,getNodeInfo , getPeerCount , getId
+      getTransactionCount , getChainId ,getNodeInfo , getPeerCount , getId , getBalance ,
+      getFullBalance
     }  ; 
