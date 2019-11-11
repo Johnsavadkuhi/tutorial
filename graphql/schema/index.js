@@ -81,6 +81,9 @@ type  RootQuery {
     getId:Int
     getBalance(address:String) : String
     getFullBalance(address:String , numberBlock : String):balance 
+    getStorageAt(address: String , index:Int):String
+    getCode(address:String) : String
+    
 
  }
 

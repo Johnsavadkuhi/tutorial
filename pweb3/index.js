@@ -85,9 +85,17 @@ function getFullBalance(address , numberBlock ){
     return web3.pi.getFullBalance(address , numberBlock); 
 
 }
+function getStorageAt(address , index ){
+
+    return web3.pi.getStorageAt(address, index); 
+}
+function getCode(address){
+    
+    return web3.pi.getCode(address); 
+}
 
 module.exports = {getBlockNumber , getBlock, getTransaction , getPendingTransactions ,
      getBlockTransactionCount  , getTransactionFromBlock  , getTransactionReceipt ,
       getTransactionCount , getChainId ,getNodeInfo , getPeerCount , getId , getBalance ,
-      getFullBalance
+      getFullBalance , getStorageAt , getCode
     }  ; 
