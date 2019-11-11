@@ -1,8 +1,8 @@
-const { getBlockNumber, getBlock, getTransaction, getPendingTransactions, getBlockTransactionCount,
-    getTransactionFromBlock, getTransactionCount , getChainId ,getNodeInfo ,
-    getPeerCount , getId } = require('../../pweb3');
+const { getBlockNumber, getBlock, getTransaction, getPendingTransactions, 
+    getBlockTransactionCount,getTransactionFromBlock, getTransactionCount ,
+     getChainId ,getNodeInfo , getPeerCount , getId } = require('../../pweb3');
 
-    
+
 module.exports = {
   
     getBlockNumber: () => {
