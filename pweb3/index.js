@@ -2,52 +2,13 @@
 const Web3 = require('pweb3'); 
 
 
-const web3 = new Web3('http://localhost:6969/pchain');
+const web3 = new Web3(`http://${process.env.IP}/pchain`);
 
 function getBlockNumber(){
     return web3.pi.getBlockNumber(); 
 }
-
-function getBlock (numberBlock){
-
-    return web3.pi.getBlock(numberBlock); 
-}
-
-function getTransaction (transactionHash ){
-
-    return web3.pi.getTransaction(transactionHash); 
-
-}
 function getPendingTransactions (){
     return web3.pi.getPendingTransactions(); 
-}
-function getBlockTransactionCount(numberBlock ) {
-
-    web3.pi.getBlockTransactionCount(numberBlock).then((result) => {
-        
-        console.log("getBlockTransactionCount : " , result); 
-
-    }).catch((err) => {
-        throw err; 
-    });
-
-    return web3.pi.getBlockTransactionCount(numberBlock); 
-
-}
-
-function getTransactionFromBlock(blocknumber , transactionIndex){
-    return web3.pi.getTransactionFromBlock(blocknumber , transactionIndex) ; 
-}
-
-function getTransactionReceipt(transactionHash){
-
-    return web3.pi.getTransactionReceipt(transactionHash)
-}
-
-function getTransactionCount(address){
- 
-    return web3.pi.getTransactionCount(address); 
-
 }
 function getChainId(){
     
@@ -57,7 +18,6 @@ function getChainId(){
     return web3.pi.getChainId(); 
 
 }
-
 function getNodeInfo (){
 
     return web3.pi.getNodeInfo() ;
@@ -76,8 +36,48 @@ function getId(){
     }
 }
 
+function getBlock (numberBlock){
+
+    return web3.pi.getBlock(numberBlock); 
+}
+function getCode(address){
+
+    return web3.pi.getCode(address); 
+}
+function getTransaction (transactionHash ){
+
+    return web3.pi.getTransaction(transactionHash); 
+
+}
+function getBlockTransactionCount(numberBlock ) {
+
+    web3.pi.getBlockTransactionCount(numberBlock).then((result) => {
+        
+        console.log("getBlockTransactionCount : " , result); 
+
+    }).catch((err) => {
+        throw err; 
+    });
+
+    return web3.pi.getBlockTransactionCount(numberBlock); 
+
+}
+function getTransactionReceipt(transactionHash){
+
+    return web3.pi.getTransactionReceipt(transactionHash)
+}
+function getTransactionCount(address){
+ 
+    return web3.pi.getTransactionCount(address); 
+
+}
 function getBalance(address){
     return web3.pi.getBalance(address)
+}
+
+
+function getTransactionFromBlock(blocknumber , transactionIndex){
+    return web3.pi.getTransactionFromBlock(blocknumber , transactionIndex) ; 
 }
 
 function getFullBalance(address , numberBlock ){
@@ -85,14 +85,12 @@ function getFullBalance(address , numberBlock ){
     return web3.pi.getFullBalance(address , numberBlock); 
 
 }
+
 function getStorageAt(address , index ){
 
     return web3.pi.getStorageAt(address, index); 
 }
-function getCode(address){
 
-    return web3.pi.getCode(address); 
-}
 
 module.exports = {
 
