@@ -25,7 +25,7 @@ type block{
 type transaction {
     hash :String 
     nonce : Int 
-    blockHash :Int
+    blockHash :String
     transactionIndex : Int 
     from : String
     to : String
@@ -72,7 +72,7 @@ type  RootQuery {
     getTransaction (transactionHash : String ):transaction
     getPendingTransactions :[transaction]
     getBlockTransactionCount(numberBlock : String!) : Int
-    getTransactionFromBlock(numberBlock : String , transactionIndex:Int) :transaction
+    getTransactionFromBlock(numberBlock : String , transactionIndex:String) :transaction
     getTransactionReceipt(transactionHash:String) :transactionReceipt
     getTransactionCount(address:String):Int
     getChainId:Int
