@@ -1,7 +1,6 @@
 
 const Web3 = require('pweb3'); 
 
-
 const web3 = new Web3(`http://${process.env.IP}/pchain`);
 
 function getBlockNumber(){
@@ -35,7 +34,6 @@ function getId(){
         throw error ; 
     }
 }
-
 function getBlock (numberBlock){
 
     return web3.pi.getBlock(numberBlock); 
@@ -44,9 +42,10 @@ function getCode(address){
 
     return web3.pi.getCode(address); 
 }
-function getTransaction (transactionHash ){
+async function getTransaction (transactionHash ){
 
-    return web3.pi.getTransaction(transactionHash); 
+    return await web3.pi.getTransaction(transactionHash);
+
 
 }
 function getBlockTransactionCount(numberBlock ) {
@@ -74,23 +73,18 @@ function getTransactionCount(address){
 function getBalance(address){
     return web3.pi.getBalance(address)
 }
-
-
 function getTransactionFromBlock(blocknumber , transactionIndex){
     return web3.pi.getTransactionFromBlock(blocknumber , transactionIndex) ; 
 }
-
 function getFullBalance(address , numberBlock ){
     
     return web3.pi.getFullBalance(address , numberBlock); 
 
 }
-
 function getStorageAt(address , index ){
 
     return web3.pi.getStorageAt(address, index); 
 }
-
 
 module.exports = {
 
