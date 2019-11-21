@@ -76,9 +76,9 @@ function getBalance(address){
 function getTransactionFromBlock(blocknumber , transactionIndex){
     return web3.pi.getTransactionFromBlock(blocknumber , transactionIndex) ; 
 }
-function getFullBalance(address , numberBlock ){
+function getFullBalance(address , numberBlock , fullProxied){
     
-    return web3.pi.getFullBalance(address , numberBlock); 
+    return web3.pi.getFullBalance(address , numberBlock , fullProxied ); 
 
 }
 function getStorageAt(address , index ){

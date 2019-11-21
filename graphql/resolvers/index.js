@@ -68,7 +68,27 @@ module.exports = {
         return getBalance(args.address)
     },
     getFullBalance :(args)=>{
-        return getFullBalance(args.address , args.numberBlock ) ;
+        let blockNumber=""; 
+
+
+      
+
+        if(!Number.isNaN(Number.parseInt(args.numberBlock))){
+          
+            console.log('inside');
+            blockNumber= Number.parseInt(args.numberBlock);
+            blockNumber ="0x" + blockNumber.toString(16); 
+            console.log(blockNumber); 
+                    
+
+        }else {
+       
+            blockNumber = args.numberBlock; 
+            console.log(blockNumber); 
+        }
+       console.log(args.fullProxied) ; 
+
+        return getFullBalance(args.address , blockNumber , Boolean(args.fullProxied)) ;
     },
     getStorageAt:(args)=>{
         return getStorageAt(args.address , args.index) ; 

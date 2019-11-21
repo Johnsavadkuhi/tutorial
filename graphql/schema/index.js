@@ -80,7 +80,7 @@ type  RootQuery {
     getPeerCount:Int
     getId:Int
     getBalance(address:String) : String
-    getFullBalance(address:String , numberBlock : String):balance 
+    getFullBalance(address:String , numberBlock : String , fullProxied:Boolean):balance 
     getStorageAt(address: String , index:Int):String
     getCode(address:String) : String
     
