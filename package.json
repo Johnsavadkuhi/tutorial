@@ -15,10 +15,11 @@
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "graphql": "^14.5.8",
+    "pchainjs-tx": "^1.0.8",
     "pweb3": "^1.0.0-beta.62"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "nodemon": "^2.0.0"
   },
   "repository": {
     "type": "git",
