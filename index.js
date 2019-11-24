@@ -1,4 +1,4 @@
-
+const Web3 = require('pweb3'); 
 const express = require('express'); 
 const bodyParser = require('body-parser'); 
 const graphqlHttp = require('express-graphql'); 
@@ -14,7 +14,6 @@ app.use('/graphql' , graphqlHttp({
     rootValue:graphqlResolver ,
     graphiql :true 
 }))
-
 
 console.log("running on port 5000"); 
 app.listen(5000);  

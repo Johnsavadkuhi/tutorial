@@ -83,12 +83,17 @@ type  RootQuery {
     getFullBalance(address:String , numberBlock : String , fullProxied:Boolean):balance 
     getStorageAt(address: String , index:Int):String
     getCode(address:String) : String
-    
+
+ }
+
+ type RootMutation{
+    sendRawTransaction(signedTransaction:String):String
 
  }
 
  schema { 
      query :RootQuery
+     mutation:RootMutation 
  }
  `) ; 
 

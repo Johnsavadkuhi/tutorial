@@ -1,7 +1,9 @@
 
+//0xf255f05bc40141bf9d68ea26e5eba5f6108cb4f147598e1dbe926f7a708ae7f9
 const Web3 = require('pweb3'); 
 
 const web3 = new Web3(`http://${process.env.IP}/pchain`);
+console.log( web3.isConnected);
 
 function getBlockNumber(){
     return web3.pi.getBlockNumber(); 
@@ -42,9 +44,9 @@ function getCode(address){
 
     return web3.pi.getCode(address); 
 }
-async function getTransaction (transactionHash ){
+ function getTransaction (transactionHash ){
 
-    return await web3.pi.getTransaction(transactionHash);
+    return  web3.pi.getTransaction(transactionHash);
 
 
 }
@@ -85,6 +87,11 @@ function getStorageAt(address , index ){
 
     return web3.pi.getStorageAt(address, index); 
 }
+function sendRawTransaction(signedTransaction){
+
+    return web3.pi.sendRawTransaction(signedTransaction )
+       
+}
 
 module.exports = {
 
@@ -98,10 +105,12 @@ module.exports = {
      getTransactionCount , //8
      getChainId ,//9
      getNodeInfo ,//10
-     getPeerCount , 
-     getId ,
-     getBalance ,
-     getFullBalance , 
-     getStorageAt , 
-     getCode
+     getPeerCount , //11
+     getId ,//12
+     getBalance ,//13
+     getFullBalance ,//14 
+     getStorageAt , //15
+     getCode , //16
+     sendRawTransaction ,//17
+     
     }  ; 

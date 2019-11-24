@@ -1,14 +1,14 @@
-const { getBlockNumber, getBlock, getTransaction, getPendingTransactions, 
-    getBlockTransactionCount,getTransactionFromBlock, getTransactionCount ,
-     getChainId ,getNodeInfo , getPeerCount , getId , getBalance ,
-     getFullBalance , getStorageAt , getCode , getTransactionReceipt} = require('../../pweb3');
+const { getBlockNumber, getBlock, getTransaction, getPendingTransactions,
+    getBlockTransactionCount, getTransactionFromBlock, getTransactionCount,
+    getChainId, getNodeInfo, getPeerCount, getId, getBalance,
+    getFullBalance, getStorageAt, getCode, getTransactionReceipt , sendRawTransaction } = require('../../pweb3');
 
 
 module.exports = {
-  
+
     getBlockNumber: () => {
 
-         return getBlockNumber() 
+        return getBlockNumber()
 
     },
 
@@ -25,7 +25,7 @@ module.exports = {
     getPendingTransactions: () => {
 
 
-       return  getPendingTransactions();
+        return getPendingTransactions();
     },
     getBlockTransactionCount: (args) => {
 
@@ -34,8 +34,8 @@ module.exports = {
 
     getTransactionFromBlock: (args) => {
 
-        return getTransactionFromBlock(args.numberBlock, args.transactionIndex); 
-   
+        return getTransactionFromBlock(args.numberBlock, args.transactionIndex);
+
     },
 
     getTransactionReceipt: (args) => {
@@ -43,57 +43,66 @@ module.exports = {
         return getTransactionReceipt(args.transactionHash);
     },
 
-    getTransactionCount:(args)=>{
+    getTransactionCount: (args) => {
 
         return getTransactionCount(args.address);
     },
-    getChainId:()=>{
+    getChainId: () => {
 
         return getChainId();
     },
-    getNodeInfo:()=>{
-        
+    getNodeInfo: () => {
+
         return getNodeInfo();
 
     },
-    getPeerCount:()=>{
-       return  getPeerCount();
+    getPeerCount: () => {
+        return getPeerCount();
     },
 
-    getId:()=>{
+    getId: () => {
 
-        return getId() ;  
+        return getId();
     },
-    getBalance :(args)=>{
+    getBalance: (args) => {
         return getBalance(args.address)
     },
-    getFullBalance :(args)=>{
-        let blockNumber=""; 
+    getFullBalance: (args) => {
+        let blockNumber = "";
 
 
-      
 
-        if(!Number.isNaN(Number.parseInt(args.numberBlock))){
-          
+
+        if (!Number.isNaN(Number.parseInt(args.numberBlock))) {
+
             console.log('inside');
-            blockNumber= Number.parseInt(args.numberBlock);
-            blockNumber ="0x" + blockNumber.toString(16); 
-            console.log(blockNumber); 
-                    
+            blockNumber = Number.parseInt(args.numberBlock);
+            blockNumber = "0x" + blockNumber.toString(16);
+            console.log(blockNumber);
 
-        }else {
-       
-            blockNumber = args.numberBlock; 
-            console.log(blockNumber); 
+
+        } else {
+
+            blockNumber = args.numberBlock;
+            console.log(blockNumber);
         }
-       console.log(args.fullProxied) ; 
+        console.log(args.fullProxied);
 
-        return getFullBalance(args.address , blockNumber , Boolean(args.fullProxied)) ;
+        return getFullBalance(args.address, blockNumber, Boolean(args.fullProxied));
     },
-    getStorageAt:(args)=>{
-        return getStorageAt(args.address , args.index) ; 
+
+    getStorageAt: (args) => {
+        return getStorageAt(args.address, args.index);
     },
-    getCode:(args)=>{
-        return getCode(args.address); 
+
+    getCode: (args) => {
+        return getCode(args.address);
+    },
+
+    sendRawTransaction : (args) =>{
+
+        return sendRawTransaction(args.signedTransaction);
     }
+
+
 } 
