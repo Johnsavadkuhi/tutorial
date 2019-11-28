@@ -1,5 +1,4 @@
 
-//0xf255f05bc40141bf9d68ea26e5eba5f6108cb4f147598e1dbe926f7a708ae7f9
 const Web3 = require('pweb3'); 
 
 const web3 = new Web3(`http://${process.env.IP}/pchain`);
