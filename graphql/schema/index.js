@@ -64,6 +64,21 @@ type balance {
     proxiedBalance:String
     proxied_detail:proxiedDetailed
 }
+type transactionSent {
+    blockHash : String 
+    blockNumber :String
+    contractAddress:String
+    cumulativeGasUsed:String
+    from:String
+    gasUsed:String
+    logs:[String]
+    logsBloom:String
+    status:Boolean
+    to:String
+    transactionIndex:Int
+    nonce:String
+    gas :String
+}
 
 type  RootQuery {
 
@@ -87,7 +102,7 @@ type  RootQuery {
  }
 
  type RootMutation{
-    sendRawTransaction(signedTransaction:String):String
+    sendRawTransaction(signedTransaction:String):transactionSent
 
  }
 
