@@ -2,8 +2,7 @@
 const Web3 = require('pweb3'); 
 
 const web3 = new Web3(`http://${process.env.IP}/pchain`);
-console.log( web3.isConnected);
-
+console.log( "gas Price : " , web3.pi.getGasPrice().then(r=>console.log(Number.parseFloat(r))));
 function getBlockNumber(){
     return web3.pi.getBlockNumber(); 
 }
@@ -86,10 +85,9 @@ function getStorageAt(address , index ){
 
     return web3.pi.getStorageAt(address, index); 
 }
-function sendRawTransaction(signedTransaction){
+  function sendRawTransaction(signedTransaction){
 
-    return web3.pi.sendRawTransaction(signedTransaction )
-       
+    return  web3.pi.sendRawTransaction(signedTransaction);        
 }
 
 module.exports = {
