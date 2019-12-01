@@ -101,7 +101,7 @@ module.exports = {
 
     sendRawTransaction : (args) =>{
 
-        return sendRawTransaction(args.signedTransaction);
+        return sendRawTransaction(args.signedTransaction ) ;
     }
 
 
