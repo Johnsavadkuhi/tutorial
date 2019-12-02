@@ -47,8 +47,6 @@ type transactionReceipt{
     cumulativeGasUsed:Int
     gasUsed:Float
     logs:[String]
-
-
 }
 type proxiedDetailed {
     ProxiedBalance:String
@@ -75,6 +73,7 @@ type transactionSent {
     logsBloom:String
     status:Boolean
     to:String
+    transactionHash:String
     transactionIndex:Int
     nonce:String
     gas :String
@@ -98,17 +97,13 @@ type  RootQuery {
     getFullBalance(address:String , numberBlock : String , fullProxied:Boolean):balance 
     getStorageAt(address: String , index:Int):String
     getCode(address:String) : String
-
- }
-
- type RootMutation{
     sendRawTransaction(signedTransaction:String):transactionSent
 
  }
 
+
  schema { 
      query :RootQuery
-     mutation:RootMutation 
  }
  `) ; 
 
