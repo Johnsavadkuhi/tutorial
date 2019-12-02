@@ -47,15 +47,18 @@ module.exports = {
 
         return getTransactionCount(args.address);
     },
+    
     getChainId: () => {
 
         return getChainId();
     },
+
     getNodeInfo: () => {
 
         return getNodeInfo();
 
     },
+
     getPeerCount: () => {
         return getPeerCount();
     },
@@ -64,14 +67,13 @@ module.exports = {
 
         return getId();
     },
+
     getBalance: (args) => {
         return getBalance(args.address)
     },
+
     getFullBalance: (args) => {
         let blockNumber = "";
-
-
-
 
         if (!Number.isNaN(Number.parseInt(args.numberBlock))) {
 
@@ -99,9 +101,12 @@ module.exports = {
         return getCode(args.address);
     },
 
-    sendRawTransaction : (args) =>{
+    sendRawTransaction :   (args) =>{
 
-        return sendRawTransaction(args.signedTransaction ) ;
+        const transactionHash  =  sendRawTransaction(args.signedTransaction); 
+
+        return transactionHash; 
+        //return  sendRawTransaction(args.signedTransaction) ;
     }
 
 
