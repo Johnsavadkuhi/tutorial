@@ -1,7 +1,8 @@
 
 const Web3 = require('pweb3'); 
 
-const web3 = new Web3(`http://${process.env.IP}/pchain`);
+ //const provider = `http://${process.env.IP}/pchain`
+const web3 = new Web3('http://46.4.199.148:6969:/pchain');
 
 function getBlockNumber(){
     return web3.pi.getBlockNumber(); 
